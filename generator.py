@@ -88,7 +88,7 @@ class Hunyuan3DMiniTurboGenerator(BaseGenerator):
     ) -> Path:
         import torch
 
-        num_steps      = int(params.get("num_inference_steps", 5))
+        num_steps      = int(params.get("num_inference_steps", 10))
         vert_count     = int(params.get("vertex_count", 0))
         enable_texture = bool(params.get("enable_texture", False))
         octree_res     = int(params.get("octree_resolution", 380))
@@ -321,9 +321,9 @@ class Hunyuan3DMiniTurboGenerator(BaseGenerator):
                 "type":    "select",
                 "default": 5,
                 "options": [
-                    {"value": 1,  "label": "Ultra Fast"},
-                    {"value": 5,  "label": "Balanced"},
-                    {"value": 10, "label": "High"},
+                    {"value": 5,  "label": "Fast"},
+                    {"value": 10, "label": "Balanced"},
+                    {"value": 20, "label": "High"},
                 ],
                 "tooltip": "Number of diffusion steps. More steps = better quality but slower.",
             },
